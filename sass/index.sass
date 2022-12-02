@@ -1,0 +1,157 @@
+@use 'sizes'
+@use 'colors'
+body
+    font-family: 'Lexend Deca', sans-serif
+    margin: 0
+    header
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
+        nav
+            display: flex
+            align-items: center
+            padding: 0.5rem 0 0.5rem 1rem
+            .logo
+                height: 30px
+            p
+                display: none
+                .icono_extensible
+                    font-size: 2rem
+            ul
+                display: flex
+                margin: 0
+                li
+                    font-size: 0.8rem
+                    list-style: none
+                    margin: 0 2rem 0 0
+                    cursor: pointer
+                    transition: 0.2s
+                    &:hover
+                        color: #dbd9d9
+            .iconos
+                position: absolute
+                right: 0
+                cursor: pointer
+    main
+        margin-top: 2rem
+        background: #f1f1f1
+        display: flex
+        align-items: center
+        height: sizes.$main_h
+        padding: 0 0 0 1rem
+        .item_scroll
+            width: sizes.$item_scroll_w
+            height: sizes.$item_scroll_h
+            background: colors.$white
+            margin: 0 0 0 1rem
+            img
+                height: sizes.$img-h
+                width: sizes.$img-w
+            div
+                display: flex
+                align-items: center
+                margin-top: -4px
+                width: sizes.$img-w
+                height: sizes.$descripcion_item_scroll_h
+                p
+                    margin: 0 0 0 1rem
+            .especial
+                background: colors.$black
+                color: white
+    .menu_productos
+        width: 95%
+        margin-left: 2.5%
+        padding-top: 2rem
+        display: grid
+        grid-template-columns: 8fr 1fr
+        .izq
+            width: 75%
+            h1
+                font-size: 3rem
+            p
+                color: colors.$text-color
+                a
+                    color: colors.$black
+        .der
+            p
+                text-align: right
+                color: colors.$text-color
+    .grid_productos
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        .item
+            display: flex
+            flex-direction: column
+            align-items: center
+            img
+                width: 100%
+            p
+                margin: 0
+            .info_headphone
+                color: colors.$text-color
+    h1
+        margin-top: 6rem
+        margin-left: 1rem
+    .tabla
+        width: 80%
+        margin-left: 10%
+        margin-top: 4rem
+        margin-bottom: 5rem
+        table
+            width: 100%
+            tr
+                height: 2rem
+                th
+                    text-align: left
+                td
+                    text-align: center
+                    color: colors.$text-color
+            .barra_separadora
+                border-top: 1px solid #dbd9d9
+                border-collapse: collapse
+            .comprimido
+                display: none
+@media screen and (max-width: 1050px)
+    nav
+        justify-content: space-between
+
+        p
+            display: block !important
+
+        ul
+            li
+                margin: 0
+        .secciones
+            display: none
+
+        .iconos
+            position: static !important
+            .comprimible
+                display: none
+    main
+        overflow: auto
+        scrollbar-color: black #727272
+        scrollbar-width: thin
+        scroll-behavior: smooth
+        padding: 0 2rem 0 1rem
+    body
+        .menu_productos
+            grid-template-columns: 1fr
+        .grid_productos
+            grid-template-columns: 1fr 1fr
+        .tabla
+            table
+                .comprimido
+                    display: table-row
+                    th
+                        text-align: center
+                tr
+                    .descromprimido
+                        display: none
+@media screen and ( max-width: 750px )
+    body
+        .menu_productos
+            grid-template-columns: 1fr
+            .der
+                p
+                    text-align: left
+        .grid_productos
+            grid-template-columns: 1fr
